@@ -3,7 +3,7 @@ const httpStatus = require('http-status-codes');
 
 module.exports.getRoutes = () => {
   router.route('/').get((req, res) => {
-    res.status(httpStatus.OK).send('API DE PICHANGA');
+    res.status(httpStatus.OK).send('API DE CHARLIE BROWNIE');
   });
   return router;
 };

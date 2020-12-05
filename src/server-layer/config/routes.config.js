@@ -1,7 +1,7 @@
 const mainRoute = require('./../routes/main.route');
-const matchRoute = require('./../routes/match.route');
+const userRoute = require('./../routes/user.route');
 
 module.exports.loadRoutes = (app) => {
   app.use(mainRoute.getRoutes());
-  app.use('/match', matchRoute.getRoutes());
+  app.use('/user', userRoute.getRoutes());
 };
