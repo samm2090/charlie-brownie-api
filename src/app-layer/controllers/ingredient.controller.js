@@ -11,3 +11,8 @@ module.exports.createIngredient = async (req, res) => {
   const result = await ingredientService.createIngredient(ingredient);
   res.status(httpStatus.OK).json(result);
 };
+
+module.exports.getStock = async (req, res) => {
+  const result = await ingredientService.getStock();
+  res.status(httpStatus.OK).json(result);
+};

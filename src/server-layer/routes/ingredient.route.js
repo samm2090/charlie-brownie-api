@@ -3,6 +3,7 @@ const recipeController = require('../../app-layer/controllers/ingredient.control
 
 module.exports.getRoutes = () => {
   router.route('/').get(recipeController.getIngredients);
+  router.route('/stock').get(recipeController.getStock);
   router.route('/').post(recipeController.createIngredient);
 
   return router;

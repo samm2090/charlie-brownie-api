@@ -7,3 +7,7 @@ module.exports.getIngredients = async () => {
 module.exports.createIngredient = async (ingredient) => {
   return await ingredientDao.insertIngredient(ingredient);
 };
+
+module.exports.getStock = async () => {
+  return await ingredientDao.getStock();
+};

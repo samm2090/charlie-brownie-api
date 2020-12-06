@@ -16,3 +16,16 @@ module.exports.insertIngredient = (ingredient) => {
   const query = generateQuery('insert', 'ingredient', options);
   return getObject(query);
 };
+
+module.exports.getStock = (ingredient) => {
+  const query = `select i.*,
+                  IFNULL((select sum(quantity) from stock 
+                  where idIngredient = i.id 
+                  group by idIngredient),0) as stock
+                from ingredient i`;
+
+  const options = {
+    sql: query,
+  };
+  return getList(options);
+};
