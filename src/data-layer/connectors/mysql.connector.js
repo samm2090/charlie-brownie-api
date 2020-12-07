@@ -25,7 +25,12 @@ module.exports.close = () => {
 
 module.exports.getObject = async (options) => {
   const [record] = await this.connection.promise().query(options);
-  return record ? JSON.parse(JSON.stringify(record)) : null;
+
+  return record.length > 0
+    ? JSON.parse(JSON.stringify(record))[0]
+    : record.length === 0
+    ? null
+    : record;
 };
 
 module.exports.getList = async (options) => {
