@@ -4,9 +4,12 @@ module.exports.generateQuery = (type, tableName, options) => {
   switch (type) {
     case 'select': {
       query = {
-        sql: buildSelectQuery(tableName, options.conditions),
-        values: Object.values(options.conditions),
+        sql: buildSelectQuery(tableName, options?.conditions),
       };
+
+      if (options?.conditions) {
+        query.values = Object.values(options?.conditions);
+      }
 
       break;
     }
@@ -37,10 +40,6 @@ function buildSelectQuery(tableName, conditions) {
     whereConditions = `where ${columns.replace(/,/g, ' = ? and ')} = ?`;
   }
 
-  const params = Object.keys(conditions)
-    .map(() => '?')
-    .toString();
-
   return `select * from ${tableName} ${whereConditions}`;
 }
 
@@ -52,5 +51,3 @@ function buildInsertQuery(tableName, entity) {
 
   return `insert into ${tableName}(${columns}) values(${params})`;
 }
-
-
