@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const recipeController = require('../../app-layer/controllers/ingredient.controller');
+const ingredientController = require('../../app-layer/controllers/ingredient.controller');
 
 module.exports.getRoutes = () => {
-  router.route('/').get(recipeController.getIngredients);
-  router.route('/stock').get(recipeController.getStock);
-  router.route('/').post(recipeController.createIngredient);
+  router.route('/').get(ingredientController.getIngredients);
+  router.route('/').post(ingredientController.createIngredient);
+
+  router.route('/stock').get(ingredientController.getStock);
+  router.route('/stock').post(ingredientController.createStock);
 
   return router;
 };

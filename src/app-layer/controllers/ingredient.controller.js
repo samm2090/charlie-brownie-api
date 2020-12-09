@@ -16,3 +16,9 @@ module.exports.getStock = async (req, res) => {
   const result = await ingredientService.getStock();
   res.status(httpStatus.OK).json(result);
 };
+
+module.exports.createStock = async (req, res) => {
+  const stock = req.body;
+  const result = await ingredientService.createStock(stock);
+  res.status(httpStatus.OK).json(result);
+};

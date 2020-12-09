@@ -29,3 +29,12 @@ module.exports.getStock = (ingredient) => {
   };
   return getList(options);
 };
+
+module.exports.insertStock = (stock) => {
+  const options = {
+    entity: stock,
+  };
+
+  const query = generateQuery('insert', 'stock', options);
+  return getObject(query);
+};

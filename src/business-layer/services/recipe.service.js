@@ -11,3 +11,7 @@ module.exports.createIngredient = async (ingredient) => {
 module.exports.getStock = async () => {
   return await ingredientDao.getStock();
 };
+
+module.exports.createStock = async (stock) => {
+  return await ingredientDao.insertStock(stock);
+};
