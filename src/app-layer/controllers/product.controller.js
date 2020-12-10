@@ -11,3 +11,9 @@ module.exports.createProduct = async (req, res) => {
   const result = await productService.createProduct(product);
   res.status(httpStatus.OK).json(result);
 };
+
+module.exports.updateProduct = async (req, res) => {
+  const product = req.body;
+  const result = await productService.updateProduct(product);
+  res.status(httpStatus.OK).json(result);
+};

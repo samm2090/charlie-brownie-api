@@ -16,3 +16,14 @@ module.exports.insertProducts = (product) => {
   const query = generateQuery('insert', 'product', options);
   return getObject(query);
 };
+
+module.exports.updateProduct = (product) => {
+  const query = `update product set status = ? where id = ?`;
+
+  const options = {
+    sql: query,
+    values: [product.status, product.id],
+  };
+  
+  return getObject(options);
+};
